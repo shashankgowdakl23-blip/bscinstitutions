@@ -1,73 +1,74 @@
-# Welcome to your Lovable project
+# BSC Institutions
 
-## Project info
+Official website for BSC Institutions — stock market training, mentorship, and financial counselling.
 
-**URL**: https://lovable.dev/projects/009899b9-2a09-4035-9a51-8771a86bf0a5
+**Live site:** [https://bscinstitutions.com](https://bscinstitutions.com)
 
-## How can I edit this code?
+## Tech Stack
 
-There are several ways of editing your application.
+- React 18 + TypeScript
+- Vite 5
+- Tailwind CSS + shadcn/ui
+- React Router
+- PHP + PHPMailer (enquiry form email API)
 
-**Use Lovable**
+## Requirements
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/009899b9-2a09-4035-9a51-8771a86bf0a5) and start prompting.
+- Node.js 18+ and npm
+- PHP 8.1+ and Composer (only for the enquiry form API)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Install and Run
 
-**Use your preferred IDE**
+```bash
+# Install dependencies
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+To create a production build:
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The build output is generated in the `dist/` folder.
 
-## What technologies are used for this project?
+Useful commands:
 
-This project is built with:
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
+| `npm run type-check` | Check TypeScript types |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Enquiry Form API
 
-## How can I deploy this project?
+The contact form posts to `/api/send_enquiry.php`.
 
-Simply open [Lovable](https://lovable.dev/projects/009899b9-2a09-4035-9a51-8771a86bf0a5) and click on Share -> Publish.
+1. Install PHP dependencies:
 
-## Can I connect a custom domain to my Lovable project?
+   ```bash
+   cd api
+   composer install
+   ```
 
-Yes, you can!
+2. Set the Hostinger mailbox details in `api/send_enquiry.php` (SMTP host, username, password, and recipient). Credentials are available in **hPanel → Emails → Manage Email → Configuration**.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The PHP endpoint only runs on a PHP host; the Vite dev server serves the frontend only.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Deployment
+
+This project is deployed on **Hostinger** and is connected to our **Hostinger account** (hPanel).
+
+To deploy an update:
+
+1. Run `npm run build`.
+2. Upload the contents of `dist/` to `public_html/` in Hostinger.
+3. Upload the `api/` folder (including `vendor/`) to `public_html/api/`.
+
